@@ -1,0 +1,46 @@
+﻿@page
+@model RegistroPersonas.Pages.Personas.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalle de Persona";
+}
+
+<div class="d-flex justify-content-between mb-2 align-items-center">
+    <div>
+        <h1>Detalle de Persona</h1>
+    </div>
+    <div>
+        <div>
+            <a asp-page="./Index"><button class="btn btn-outline-dark">Volver</button></a>
+        </div>
+    </div>
+</div>
+
+<div>
+    <h4>Persona</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2 text-capitalize">
+            @Html.DisplayNameFor(model => model.Persona.nombre)
+        </dt>
+        <dd class="col-sm-10 text-capitalize">
+            @Html.DisplayFor(model => model.Persona.nombre)
+        </dd>
+        <dt class="col-sm-2 text-capitalize">
+            @Html.DisplayNameFor(model => model.Persona.sexo)
+        </dt>
+        <dd class="col-sm-10 text-capitalize">
+            @Html.DisplayFor(model => model.Persona.sexo)
+        </dd>
+        <dt class="col-sm-2 text-capitalize">
+            @Html.DisplayNameFor(model => model.Persona.nacimiento)
+        </dt>
+        <dd class="col-sm-10 text-capitalize">
+            @Html.DisplayFor(model => model.Persona.nacimiento)
+        </dd>
+    </dl>
+</div>
+<div class="my-3">
+    <a asp-page="./Edit" asp-route-id="@Model.Persona?.id"><button class="btn btn-primary p-3 my-1">Editar Persona</button></a>
+    
+</div>

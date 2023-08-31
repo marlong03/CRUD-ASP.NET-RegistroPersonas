@@ -1,0 +1,55 @@
+﻿@page
+@model RegistroPersonas.Pages.Personas.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="d-flex justify-content-between mb-2 align-items-center">
+    <div>
+        <h1>Listado de personas</h1>
+    </div>
+    <div>
+        <div>
+            <a asp-page="Create"><button class="btn btn-outline-success p-2">Crear Persona</button></a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th class="text-capitalize">
+                @Html.DisplayNameFor(model => model.Persona[0].nombre)
+            </th>
+            <th class="text-capitalize">
+                @Html.DisplayNameFor(model => model.Persona[0].sexo)
+            </th>
+            <th class="text-capitalize">
+                @Html.DisplayNameFor(model => model.Persona[0].nacimiento)
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Persona) {
+        <tr>
+            <td class="text-capitalize">
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+                <td class="text-capitalize">
+                @Html.DisplayFor(modelItem => item.sexo)
+            </td>
+            <td class="text-capitalize">
+                @Html.DisplayFor(modelItem => item.nacimiento)
+            </td>
+            <td>
+                    <a asp-page="./Edit" asp-route-id="@item.id"><button class="btn btn-primary mx-2 my-1">Editar</button></a>
+                    <a asp-page="./Details" asp-route-id="@item.id"><button class="btn btn-success mx-2 my-1">Visualizar</button></a>
+                    <a asp-page="./Delete" asp-route-id="@item.id"><button class="btn btn-danger mx-2 my-1">Eliminar</button></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
